@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "autod": "1",
+    "iconv-lite": "~0.4.4",
     "istanbul": "~0.3.2",
     "mocha": "~1.21.4",
     "should": "~4.0.4"
