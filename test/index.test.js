@@ -23,10 +23,10 @@ describe('urllib-sync', function () {
     });
 
     it('should request text ok', function () {
-      var res = urllib.request('http://www.baidu.com', {
+      var res = urllib.request('http://npm.taobao.org', {
         dataType: 'text'
       });
-      res.data.should.containEql('百度');
+      res.data.should.containEql('淘宝 NPM 镜像');
       res.status.should.equal(200);
     });
 
