@@ -16,7 +16,7 @@ var assert = require('assert');
 var path = require('path');
 var fs = require('fs');
 
-assert(cp.execSync, 'urllib-sync need node version 0.11.13+');
+assert(cp.spawnSync, 'urllib-sync need node version 0.11.13+');
 
 exports.request = function request(url, args) {
   assert(url, 'url required');
@@ -44,6 +44,7 @@ exports.request = function request(url, args) {
     var e = new Error(res.stderr.toString() || 'unknown error');
     e.url = url;
     e.args = args;
+    e.status = res.status;
     throw e;
   }
 

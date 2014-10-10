@@ -16,20 +16,31 @@ urllib-sync
 [coveralls-url]: https://coveralls.io/r/node-modules/urllib-sync?branch=master
 [david-image]: https://img.shields.io/david/node-modules/urllib-sync.svg?style=flat-square
 [david-url]: https://david-dm.org/node-modules/urllib-sync
-[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_0.11-red.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [gittip-image]: https://img.shields.io/gittip/dead-horse.svg?style=flat-square
 [gittip-url]: https://www.gittip.com/dead-horse/
 
-a hack wrap to support sync http request
+sync http request
+
+___Only support node v0.11.13+___
 
 ## Installation
 
 ```bash
-$ npm install urllib-sync
+$ npm install urllib-sync --save
 ```
 
 ## Usage
+
+```js
+var request = require('urllib-sync').request;
+
+var res = request('https://github.com');
+// res should have status, data, headers
+```
+
+more options please check out [urllib](https://github.com/node-modules/urllib)
 
 ### License
 
