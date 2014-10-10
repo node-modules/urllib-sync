@@ -7,7 +7,9 @@
     "test": "make test"
   },
   "keywords": [
-
+    "http",
+    "sync",
+    "request"
   ],
   "author": {
     "name": "dead-horse",
