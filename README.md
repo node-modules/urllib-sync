@@ -21,9 +21,10 @@ urllib-sync
 [gittip-image]: https://img.shields.io/gittip/dead-horse.svg?style=flat-square
 [gittip-url]: https://www.gittip.com/dead-horse/
 
-sync http request
+sync http request powered by [urllib](https://github.com/node-modules/urllib) 
+and spawnSync.
 
-___Only support node v0.11.13+___
+___Notice: Only support node v0.11.13+___
 
 ## Installation
 
