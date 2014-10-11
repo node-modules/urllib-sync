@@ -40,13 +40,13 @@ describe('urllib-sync', function () {
 
     it('should timeout', function () {
       try {
-        urllib.request('http://www.baidu.com', {
+        urllib.request('http://npm.taobao.org', {
           dataType: 'text',
           timeout: 10
         });
         throw new Error('should not exec');
       } catch (err) {
-        err.message.should.containEql('timeout');
+        err.message.should.match(/timeout/i);
       }
     });
   });
