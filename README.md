@@ -41,7 +41,7 @@ var res = request('https://github.com');
 // res should have status, data, headers
 ```
 
-more options please check out [urllib](https://github.com/node-modules/urllib)
+more options please check out [urllib](https://github.com/node-modules/urllib). But unfortunately, `urllib-sync` ___do not support streams and agents now___.
 
 ### License
 
