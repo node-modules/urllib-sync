@@ -43,6 +43,11 @@ var res = request('https://github.com');
 
 more options please check out [urllib](https://github.com/node-modules/urllib). But unfortunately, `urllib-sync` ___do not support streams and agents now___.
 
+### writeFile
+
+If `options.writeFile` is present, the result of request will write into this file directly.
+
+
 ### License
 
 MIT
