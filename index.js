@@ -58,19 +58,23 @@ exports.request = function request(url, args) {
   }
 
   try {
-    var data = fs.readFileSync(res.path);
     switch (res.type) {
-      case 'string':
-      res.data = data.toString();
+    case 'string':
+      res.data = fs.readFileSync(res.path).toString();
       break;
-      case 'json':
-      res.data = JSON.parse(data.toString());
+    case 'json':
+      res.data = JSON.parse(fs.readFileSync(res.path).toString());
       break;
-      default:
-      res.data = data;
+    case 'file':
+      res.data = null;
+      break;
+    default:
+      res.data = fs.readFileSync(res.path);
     }
+  } catch (err){
+    // ignore
   } finally {
-    fs.unlinkSync(res.path);
+    if (res.type !== 'file') fs.unlinkSync(res.path);
     delete res.path;
   }
 

@@ -33,8 +33,6 @@ urllib.request(input.url, input.args, function (err, data, res) {
   }
 
   var name = util.format('%s:%s', process.pid, Date.now());
-  var filepath = path.join(os.tmpDir(), name);
-
   var type = 'buffer';
   if (data && typeof data === 'object' && !Buffer.isBuffer(data)) {
     type = 'json';
@@ -43,6 +41,13 @@ urllib.request(input.url, input.args, function (err, data, res) {
     type = 'string';
   }
 
+  var filepath = path.join(os.tmpDir(), name);
+
+  // if need to writeFile
+  if (input.args.writeFile) {
+    type = 'file';
+    filepath = input.args.writeFile;
+  }
   fs.writeFileSync(filepath, data);
 
   var res = {

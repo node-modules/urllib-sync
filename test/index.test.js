@@ -12,11 +12,12 @@
 
 var urllib = require('..');
 var iconv = require('iconv-lite');
+var fs = require('fs');
 
 describe('urllib-sync', function () {
   describe('request()', function () {
     it('should request gbk ok', function () {
-      var res = urllib.request('http://www.tmall.com');
+      var res = urllib.request('http://www.taobao.com/go/rgn/tmall/header/2014/sub-nav.php');
       var data = iconv.decode(res.data, 'gbk');
       data.should.containEql('天猫');
       res.status.should.equal(200);
@@ -49,5 +50,15 @@ describe('urllib-sync', function () {
         err.message.should.match(/timeout/i);
       }
     });
+
+    it('should writeFile ok', function () {
+      var res = urllib.request('http://www.taobao.com/go/rgn/tmall/header/2014/sub-nav.php', {
+        writeFile: './tmp'
+      });
+      res.status.should.equal(200);
+      var data = iconv.decode(fs.readFileSync('./tmp'), 'gbk');
+      data.should.containEql('天猫');
+      fs.unlinkSync('./tmp');
+    })
   });
 });
