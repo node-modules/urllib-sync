@@ -59,6 +59,15 @@ describe('urllib-sync', function () {
       var data = iconv.decode(fs.readFileSync('./tmp'), 'gbk');
       data.should.containEql('天猫');
       fs.unlinkSync('./tmp');
-    })
+    });
+
+    it('should not write file when status 302', function () {
+      var res = urllib.request('http://www.taobao.com/not/exist/file/path', {
+        writeFile: './404file'
+      });
+      res.status.should.equal(302);
+      res.data.toString().should.match(/302/);
+      fs.existsSync('./404file').should.equal(false);
+    });
   });
 });
