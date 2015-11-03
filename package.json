@@ -23,14 +23,14 @@
   "license": "MIT",
   "dependencies": {
     "urllib": "~2.5.0",
-    "utility": "~1.4.0"
+    "utility": "~1.5.0"
   },
   "devDependencies": {
     "autod": "1",
-    "iconv-lite": "~0.4.12",
-    "istanbul": "~0.3.21",
+    "iconv-lite": "~0.4.13",
+    "istanbul": "~0.4.0",
     "mocha": "~2.3.3",
-    "should": "~7.1.0"
+    "should": "~7.1.1"
   },
   "engine": {
     "node": ">=0.11.13"
