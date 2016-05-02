@@ -33,7 +33,8 @@ describe('urllib-sync', function () {
 
     it('should request json ok', function () {
       var res = urllib.request('http://registry.npm.taobao.org/koa', {
-        dataType: 'json'
+        dataType: 'json',
+        timeout: 30000
       });
       res.data.name.should.equal('koa');
       res.status.should.equal(200);
