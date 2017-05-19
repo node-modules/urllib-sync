@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "urllib": "~2.9.0",
+    "urllib": "~2.11.0",
     "utility": "~1.7.1"
   },
   "devDependencies": {
