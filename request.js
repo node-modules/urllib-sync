@@ -41,7 +41,7 @@ urllib.request(input.url, input.args, function (err, data, res) {
     type = 'string';
   }
 
-  var filepath = path.join(os.tmpDir(), name);
+  var filepath = path.join(os.tmpdir(), name);
 
   // if need to writeFile
   if ((res.statusCode / 100 | 0) === 2 && input.args.writeFile) {
