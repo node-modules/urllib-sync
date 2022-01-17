@@ -16,13 +16,6 @@ var fs = require('fs');
 
 describe('urllib-sync', function () {
   describe('request()', function () {
-    it('should request gbk ok', function () {
-      this.timeout(4000);
-      var res = urllib.request('http://www.taobao.com/go/rgn/tmall/header/2014/sub-nav.php');
-      var data = iconv.decode(res.data, 'gbk');
-      data.should.containEql('天猫');
-      res.status.should.equal(200);
-    });
 
     it('should request text ok', function () {
       this.timeout(30000);
@@ -58,12 +51,12 @@ describe('urllib-sync', function () {
 
     it('should writeFile ok', function () {
       this.timeout(4000);
-      var res = urllib.request('http://www.taobao.com/go/rgn/tmall/header/2014/sub-nav.php', {
+      var res = urllib.request('https://npm.taobao.org/', {
         writeFile: './tmp'
       });
       res.status.should.equal(200);
-      var data = iconv.decode(fs.readFileSync('./tmp'), 'gbk');
-      data.should.containEql('天猫');
+      var data = iconv.decode(fs.readFileSync('./tmp'), 'utf-8');
+      data.should.containEql('淘宝 NPM 镜像');
       fs.unlinkSync('./tmp');
     });
 
@@ -72,8 +65,8 @@ describe('urllib-sync', function () {
       var res = urllib.request('http://www.taobao.com/not/exist/file/path', {
         writeFile: './404file'
       });
-      res.status.should.equal(302);
-      res.data.toString().should.match(/302/);
+      res.status.should.equal(301);
+      res.data.toString().should.match(/301/);
       fs.existsSync('./404file').should.equal(false);
     });
   });
