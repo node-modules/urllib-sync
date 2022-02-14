@@ -1,6 +1,6 @@
 {
   "name": "urllib-sync",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "sync http request",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "urllib": "~2.11.0",
+    "urllib": "~2.34.1",
     "utility": "~1.7.1"
   },
   "devDependencies": {
